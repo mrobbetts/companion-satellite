@@ -116,6 +116,21 @@ stdenv.mkDerivation rec {
   passthru.updateScript = nix-update-script { };
 
   postPatch = ''
+    # Upstream pins yarn 4.14 and uses settings (approvedGitRepositories,
+    # npmMinimalAgeGate, npmPreapprovedPackages) that older yarn versions -
+    # such as the one in nixpkgs - reject as unrecognized. None of them affect
+    # an offline install, so keep only what the build needs.
+    printf '%s\n' \
+      "nodeLinker: node-modules" \
+      "enableScripts: true" \
+      "supportedArchitectures:" \
+      "  cpu:" \
+      "    - x64" \
+      "    - arm64" \
+      "  os:" \
+      "    - current" \
+      > .yarnrc.yml
+
     # postinstall runs husky (needs .git) and tools/dev_prepare.mts (downloads
     # node runtimes + builtin surface modules from the network). Nix handles
     # all of that, so neutralise it before the offline yarn install runs it.
