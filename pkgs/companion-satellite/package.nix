@@ -158,7 +158,7 @@ stdenv.mkDerivation rec {
 
   offlineCache = yarn-berry.fetchYarnBerryDeps {
     inherit src missingHashes;
-    hash = lib.fakeHash; # TODO: replace with the real hash (see README)
+    hash = "sha256-90nfhX7heHfwgze2Rmbc9YCFcifql6VkaLbToUyxtqY=";
   };
 
   env = {
