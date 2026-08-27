@@ -43,8 +43,8 @@ let
     {
       pname = "elgato-stream-deck";
       src = fetchurl {
-        url = "https://s4.bitfocus.io/developer-module-builds/surface/elgato-stream-deck/v1.4.3-70e2c01d15a0f58c52a8e80d7d6f4977f157d58e/elgato-stream-deck-v1.4.3.tgz";
-        sha256 = "6d99d7be4c9f965cc7653009b47fe149822ff89e59398599c9c507773f6cac62";
+        url = "https://s4.bitfocus.io/developer-module-builds/surface/elgato-stream-deck/v1.4.6-c7ea9961c73fc6bf184b563d03c64b5607312d8d/elgato-stream-deck-v1.4.6.tgz";
+        sha256 = "d336209f66a8db2872dc24a51db76a7d5f58596c14890e6489b0e34f8baa3a7f";
       };
     }
     {
@@ -57,8 +57,8 @@ let
     {
       pname = "loupedeck";
       src = fetchurl {
-        url = "https://s4.bitfocus.io/developer-module-builds/surface/loupedeck/v1.0.2-473ac7952ecb0d3f7f4e38d104932bb25cd7c8b8/loupedeck-v1.0.2.tgz";
-        sha256 = "4142af8275f5c0afd7b5cf8c1d629be86bf257ceb4cb1502782603877a4907ff";
+        url = "https://s4.bitfocus.io/developer-module-builds/surface/loupedeck/v1.1.1-f93dd8b847388d37aaa0576743260b6f729262fb/loupedeck-v1.1.1.tgz";
+        sha256 = "d9b5b23cc6528d661242accb1a4a5e18d7f9b840453ef1cf6e15ce916b0f4ebd";
       };
     }
     {
@@ -102,7 +102,7 @@ in
 
 stdenv.mkDerivation rec {
   pname = "companion-satellite";
-  version = "3.1.0";
+  version = "3.4.0";
 
   strictDeps = true;
 
@@ -110,7 +110,7 @@ stdenv.mkDerivation rec {
     owner = "bitfocus";
     repo = "companion-satellite";
     tag = "v${version}";
-    hash = "sha256-MiXOE0oBsKKEEcbRJjxZL8bFi36DgmZUUzuwoDmHF6o="; # 3.1.0
+    hash = "sha256-OJI6uKSNAV0CMq48maU/6Z0iwsM6qjiK/GXzHr0Y/rs="; # 3.4.0
   };
 
   passthru.updateScript = nix-update-script { };
@@ -173,7 +173,7 @@ stdenv.mkDerivation rec {
 
   offlineCache = yarn-berry.fetchYarnBerryDeps {
     inherit src missingHashes;
-    hash = "sha256-90nfhX7heHfwgze2Rmbc9YCFcifql6VkaLbToUyxtqY=";
+    hash = "sha256-tzdqrviYuuG6ceypO3UaRhgdsz21wrbHaBX76v2ZwP8=";
   };
 
   env = {
